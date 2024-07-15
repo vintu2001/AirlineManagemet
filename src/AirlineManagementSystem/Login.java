@@ -7,6 +7,7 @@ import javax.swing.JPasswordField;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.ResultSet;
 
 public class Login extends JFrame implements ActionListener {
 
@@ -61,11 +62,30 @@ public class Login extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         //adding functionality to buttons
         if(e.getSource() == btnLogin){
-            //showing popup for login successful for testing
-            JOptionPane.showMessageDialog(null, "You have successfully logged in");
+            String username = tfUsername.getText();
+            String password = pfPassword.getText();
+
+            try {
+                Conn c = new Conn();
+
+                String query = "select * from login where username = '"+username+"' and password = '"+password+"'";
+
+                ResultSet rs = c.s.executeQuery(query);
+
+                if (rs.next()) {
+                    //showing message if login is successful
+                    JOptionPane.showMessageDialog(null, "Login Successful");
+                } else {
+                    JOptionPane.showMessageDialog(null, "Invalid Username or Password");
+                    setVisible(false);
+                }
+            } catch (Exception er) {
+                er.printStackTrace();
+            }
 
         }else if(e.getSource() == btnCancel){
             setVisible(false);
+
         }else if(e.getSource() == btnReset){
             tfUsername.setText("");
             pfPassword.setText("");
