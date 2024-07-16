@@ -80,9 +80,9 @@ public class Home extends JFrame implements ActionListener {
         String text = e.getActionCommand();
 
         if (text.equals("Add Customer Details")) {
-//            new AddCustomer();
+            new AddCustomer();
         } else if (text.equals("Flight Details")) {
-//            new FlightInfo();
+            new FlightInfo();
         } else if (text.equals("Book Flight")) {
 //            new BookFlight();
         } else if (text.equals("Journey Details")) {
