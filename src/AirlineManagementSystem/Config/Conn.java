@@ -1,4 +1,5 @@
-package AirlineManagementSystem;
+package AirlineManagementSystem.Config;
+
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -6,7 +7,7 @@ import java.sql.Statement;
 
 public class Conn {
     Connection c;
-    Statement s;
+    public Statement s;
 
     public Conn() {
         //connecting with MySql database

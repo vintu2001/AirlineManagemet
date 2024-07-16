@@ -1,5 +1,7 @@
 package AirlineManagementSystem;
 
+import AirlineManagementSystem.Config.Conn;
+
 import javax.swing.*;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
@@ -74,7 +76,8 @@ public class Login extends JFrame implements ActionListener {
 
                 if (rs.next()) {
                     //showing message if login is successful
-                    JOptionPane.showMessageDialog(null, "Login Successful");
+                    new Home();
+                    setVisible(false);
                 } else {
                     JOptionPane.showMessageDialog(null, "Invalid Username or Password");
                     setVisible(false);
